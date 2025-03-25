@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>最小寬度 1280px RWD 測試</title>
     <style>
         * {
@@ -17,6 +17,7 @@
             overflow-x: hidden;
         }
 
+        /* 設定 wrapper 寬度為視窗的 100%，並讓內容居中 */
         .wrapper {
             display: flex;
             justify-content: center;
@@ -27,12 +28,13 @@
             overflow: hidden;
         }
 
+        /* 設定內容區域，最小寬度 1280px */
         .content {
             width: 100%;
             max-width: 100%;
             min-width: 1280px;
             height: 720px;
-            background-color: rgb(201, 206, 255);
+            background-color: rgb(247, 255, 220);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -42,23 +44,27 @@
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            transform-origin: top left;
         }
 
+        /* 使用 media query 來檢查視窗是否小於 1280px */
         @media (max-width: 1280px) {
             .wrapper {
-                width: 1280px;
+                width: 100vw;
+                height: 100vh;
+                /* 設定等比縮放 */
                 transform: scale(calc(100vw / 1280));
                 transform-origin: top left;
             }
         }
 
+        /* 顯示方塊容器 */
         .box-container {
             display: flex;
             gap: 20px;
             margin-top: 20px;
         }
 
+        /* 設定方塊的樣式 */
         .box {
             width: 100px;
             height: 100px;
